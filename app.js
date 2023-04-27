@@ -41,4 +41,8 @@ app.get("/work", (req, res) => {
   res.render("list", { listTitle: `Work List`, toDoList: workItems });
 });
 
+app.get("/about", (req, res) => {
+  res.render("about");
+});
+
 app.listen(5050, console.log("Port listening on port 5050"));
