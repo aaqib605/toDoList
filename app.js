@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const date = require(__dirname + "/date");
 const app = express();
 
 const toDoList = [];
@@ -11,15 +12,7 @@ app.set("view engine", "ejs");
 
 // Root Route
 app.get("/", (req, res) => {
-  const today = new Date();
-
-  const options = {
-    weekday: "long",
-    month: "long",
-    day: "numeric",
-  };
-
-  const day = today.toLocaleDateString("en-US", options);
+  const day = date.getDate();
 
   res.render("list", { listTitle: day, toDoList: toDoList });
 });
